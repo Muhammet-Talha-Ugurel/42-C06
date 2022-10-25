@@ -6,7 +6,7 @@
 /*   By: mugurel <muhammedtalhaugurel@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 01:41:02 by mugurel           #+#    #+#             */
-/*   Updated: 2022/10/25 04:11:06 by mugurel          ###   ########.fr       */
+/*   Updated: 2022/10/25 12:26:00 by mugurel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ void	ft_sort_str_arg(char **tab, int size)
 	ltc = 0;
 	while (arc < (size - 1))
 	{
-		if (tab[arc][ltc] == tab[arc + 1][ltc])
-		{
+		if (tab[arc][ltc] == tab[arc + 1][ltc]
+			&& (tab[arc][ltc] != '\0' || tab[arc + 1][ltc] != '\0'))
 			ltc++;
-		}
-		if (tab[arc][ltc] > tab[arc + 1][ltc])
+		else if (tab[arc][ltc] > tab[arc + 1][ltc])
 		{
 			swap = tab[arc];
 			tab[arc] = tab[arc + 1];
@@ -52,7 +51,10 @@ void	ft_sort_str_arg(char **tab, int size)
 			ltc = 0;
 		}
 		else
+		{
 			arc++;
+			ltc = 0;
+		}
 	}
 }
 
